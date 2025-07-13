@@ -1,0 +1,38 @@
+{% extends 'employee_register/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Employee Form{% endblock title %}
+
+
+{% block content %}
+<div class="container"> 
+<form action="" method="post" autocomplete="off">
+    {% csrf_token %}
+    <div class="mb-3">
+    {{fm.fullname|as_crispy_field}}
+    </div>
+    <div class="mb-3">
+    {{fm.mobile|as_crispy_field}}
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-4">
+            {{fm.emp_code|as_crispy_field}}
+        </div>
+        <div class="col-md-8">
+            {{fm.position|as_crispy_field}}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+        <button type="submit" class="btn btn-success w-75 btn-lg mt-2"><i class="fa-solid fa-database"></i> Submit</button>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'listData' %}" class="btn btn-secondary btn-lg mt-2"> <i class="fas fa-stream"></i> back to list</a>
+        </div>
+    </div>
+
+</form>
+</div>
+{% endblock content %}
